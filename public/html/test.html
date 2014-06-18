@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="../javascripts/jQuery-1.11.1.min.js" ></script>
+    <script type="text/javascript">
+            function doRequest(type,url,data){
+                $(document).ready(function(){
+                    // 送信先のURL の取得
+                    $.ajax({
+                        type: type,  // HTMLメソッド
+//                        type: 'PUT',  // HTMLメソッド
+                        url: url,  // 送信先のURL
+                        data: data, // 送信するデータ
+                        success: function(data){  // 送信成功時の処理
+                            console.log(data)
+                        }
+                    });
+                });
+            }
+    </script>
+</head>
+<body>
+<form method="POST">
+    <input type="button" value="全スレッド取得" onClick="javascript:doRequest('GET','/api/thread');"/> <br>
+    <input type="button" value="タイトル1で検索" onclick="javascript:doRequest('GET','/api/thread',{title:'タイトル1'});"/> <br>
+    <input type="button" value="タイトル1の1000件取得" onclick="javascript:doRequest('GET','/api/thread/1',{page:1});"/> <br>
+    <input type="button" value="タイトル1の次の1000件取得" onclick="javascript:doRequest('GET','/api/thread/1',{page:2});"/> <br>
+    <input type="button" value="スレッド1内でコメント「コメント」検索 = 14件" onclick="javascript:doRequest('GET','/api/thread/1',{comment:'コメント'});"/> <br>
+    <input type="button" value="スレッド1内でコメント「コメント3」検索 = 1件" onclick="javascript:doRequest('GET','/api/thread/1',{comment:'コメント3'});"/> <br>
+    <input type="button" value="スレッド1内で「hoge」検索 = 0件" onclick="javascript:doRequest('GET','/api/thread/1',{comment:'hoge'});"/> <br>
+    <input type="button" value="スレッド1内でユーザ名「おか」検索 = 1件" onclick="javascript:doRequest('GET','/api/thread/1',{userName:'おか'});"/> <br>
+    <input type="button" value="「NEWタイトル」という名前でスレッド作成 = NEWタイトル情報取得" onclick="javascript:doRequest('POST','/api/thread',{title:'NEWタイトル',user_id:2});"/> <br>
+    <input type="button" value="40文字以上のタイトルでスレッド作成 = BadRequest" onclick="javascript:doRequest('POST','/api/thread',{title:'12345678901234567890123456789012345678901234567890',user_id:2});"/> <br>
+    <input type="button" value="「NEWコメント」でスレッド1へ投稿 = Ok" onclick="javascript:doRequest('POST','/api/thread/1',{threadId:1,comment:'NEWコメント',userName:'おかだ'});"/> <br>
+    <input type="button" value="401文字のコメントをスレッド1へ投稿 = BadRequest" onclick="javascript:doRequest('POST','/api/thread/1',{threadId:1,comment:'12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890012345678901234567890012345678901234567890１',userName:'おかだ'});"/> <br>
+</form>
+</body>
+</html>

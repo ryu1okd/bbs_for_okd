@@ -1,3 +1,5 @@
+import play.Project._
+
 name := "bbs_for_okd"
 
 version := "1.0-SNAPSHOT"

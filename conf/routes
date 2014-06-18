@@ -4,7 +4,10 @@
 
 # Home page
 # GET     /                           controllers.Application.index
-GET       /api/thread                 controllers.ThreadApi.index
+GET         /api/thread                  controllers.ThreadApi.find(title:Option[String])
+POST        /api/thread                  controllers.ThreadApi.create
+GET         /api/thread/:threadId        controllers.ThreadApi.detail(threadId:Long, page:Option[Int], comment:Option[String], userName:Option[String])
+POST        /api/thread/:threadId        controllers.ThreadApi.comment(threadId:Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET         /assets/*file                controllers.Assets.at(path="/public", file)
