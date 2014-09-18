@@ -1,3 +1,0 @@
-conf/application.conf merge=ours
-Procfile merge=ours
-Fluid* merge=ours
