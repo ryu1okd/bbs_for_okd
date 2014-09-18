@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>me.com</key>
+	<dict>
+		<key>patterns</key>
+		<array>
+			<string>*me.com*</string>
+			<string>*mobileme.com*</string>
+			<string>*mac.com*</string>
+			<string>*icloud.com*</string>
+		</array>
+		<key>handlers</key>
+		<array>
+			<dict>
+				<key>scheme</key>
+				<string>mailto</string>
+				<key>URLString</key>
+				<string>https://www.me.com/mail/message/en/#compose?to=</string>
+			</dict>
+		</array>
+	</dict>
+
+	<key>GAFYD</key>
+	<dict>
+		<key>patterns</key>
+		<array>
+			<string>*partnerpage*google.com*</string>
+			<string>*google.com*/a/*</string>
+		</array>
+		<key>handlers</key>
+		<array>
+			<dict>
+				<key>scheme</key>
+				<string>mailto</string>
+				<key>URLString</key>
+				<string>https://mail.google.com/a/domain/?view=cm&amp;ui=2&amp;tf=0&amp;fs=1&amp;to=</string>
+			</dict>
+		</array>
+		
+	</dict>
+
+	<key>gmail.com</key>
+	<dict>
+		<key>patterns</key>
+		<array>
+			<string>*gmail.com*</string>
+			<string>*mail*google.com*</string>
+			<string>*google.com*mail*</string>
+		</array>
+		<key>handlers</key>
+		<array>
+			<dict>
+				<key>scheme</key>
+				<string>mailto</string>
+				<key>URLString</key>
+				<string>https://mail.google.com/mail/?view=cm&amp;ui=2&amp;tf=0&amp;fs=1&amp;to=</string>
+			</dict>
+		</array>
+		
+	</dict>
+
+
+	<key>mail.yahoo.com</key>
+	<dict>
+		<key>patterns</key>
+		<array>
+			<string>*ymail.com*</string>
+			<string>*mail*yahoo.com*</string>
+			<string>*yahoo.com*mail*</string>
+		</array>
+		<key>handlers</key>
+		<array>
+			<dict>
+				<key>scheme</key>
+				<string>mailto</string>
+				<key>URLString</key>
+				<string>http://compose.mail.yahoo.com/?to=</string>
+			</dict>
+		</array>
+	</dict>
+
+</dict>
+</plist>
