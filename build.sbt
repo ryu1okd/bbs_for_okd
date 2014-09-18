@@ -12,6 +12,7 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.5",
   "com.github.tototoshi" % "slick-joda-mapper_2.10" % "1.1.0",
   "org.slf4j" % "slf4j-nop" % "1.6.4",
+  "postgresql" % "postgresql" % "9.1-901-1.jdbc4",
   "com.typesafe.play" % "play-slick_2.10" % "0.6.0.1" withSources
 )     
 

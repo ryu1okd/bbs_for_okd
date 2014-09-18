@@ -1,8 +1,8 @@
 package models
 
 import org.joda.time.DateTime
-import scala.slick.driver.H2Driver.simple._
-import com.github.tototoshi.slick.H2JodaSupport._
+import scala.slick.driver.PostgresDriver.simple._
+import com.github.tototoshi.slick.PostgresJodaSupport._
 
 /**
  * スレッドモデル
@@ -13,12 +13,12 @@ case class Thread (id:Option[Long],title:String,userId:Long,createAt:Option[Date
 
 
 
-class Threads(tag:Tag) extends Table[Thread](tag,"THREAD"){
+class Threads(tag:Tag) extends Table[Thread](tag,"thread"){
 
-  def id = column[Option[Long]]("ID",O.PrimaryKey,O.AutoInc)
-  def title = column[String]("TITLE")
-  def userId = column[Long]("USER_ID")
-  def createAt = column[Option[DateTime]]("CREATE_AT",O.AutoInc)
+  def id = column[Option[Long]]("id",O.PrimaryKey,O.AutoInc)
+  def title = column[String]("title")
+  def userId = column[Long]("user_id")
+  def createAt = column[Option[DateTime]]("create_at",O.AutoInc)
 
   def * = (id, title, userId, createAt) <> (Thread.tupled,Thread.unapply)
 }
@@ -51,6 +51,11 @@ object Threads extends DAO{
     }
   }
 
+  /**
+   * IDで検索
+   * @param id
+   * @return
+   */
   def findById(id:Long) = db.withSession { implicit session =>
     threads.filter(_.id === id).firstOption()
   }

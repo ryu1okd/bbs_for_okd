@@ -29,8 +29,8 @@
     <input type="button" value="スレッド1内でコメント「コメント3」検索 = 1件" onclick="javascript:doRequest('GET','/api/thread/1',{comment:'コメント3'});"/> <br>
     <input type="button" value="スレッド1内で「hoge」検索 = 0件" onclick="javascript:doRequest('GET','/api/thread/1',{comment:'hoge'});"/> <br>
     <input type="button" value="スレッド1内でユーザ名「おか」検索 = 1件" onclick="javascript:doRequest('GET','/api/thread/1',{userName:'おか'});"/> <br>
-    <input type="button" value="「NEWタイトル」という名前でスレッド作成 = NEWタイトル情報取得" onclick="javascript:doRequest('POST','/api/thread',{title:'NEWタイトル',user_id:2});"/> <br>
-    <input type="button" value="40文字以上のタイトルでスレッド作成 = BadRequest" onclick="javascript:doRequest('POST','/api/thread',{title:'12345678901234567890123456789012345678901234567890',user_id:2});"/> <br>
+    <input type="button" value="「NEWタイトル」という名前でスレッド作成 = NEWタイトル情報取得" onclick="javascript:doRequest('POST','/api/thread',{title:'NEWタイトル',userId:2});"/> <br>
+    <input type="button" value="40文字以上のタイトルでスレッド作成 = BadRequest" onclick="javascript:doRequest('POST','/api/thread',{title:'12345678901234567890123456789012345678901234567890',userId:2});"/> <br>
     <input type="button" value="「NEWコメント」でスレッド1へ投稿 = Ok" onclick="javascript:doRequest('POST','/api/thread/1',{threadId:1,comment:'NEWコメント',userName:'おかだ'});"/> <br>
     <input type="button" value="401文字のコメントをスレッド1へ投稿 = BadRequest" onclick="javascript:doRequest('POST','/api/thread/1',{threadId:1,comment:'12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890012345678901234567890012345678901234567890012345678901234567890１',userName:'おかだ'});"/> <br>
 </form>

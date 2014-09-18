@@ -15,5 +15,5 @@ protected trait DAO{
   /* テーブルクエリ */
   val threads = TableQuery[Threads]
   val comments = TableQuery[Comments]
-  val users = TableQuery[Users]
+  val members = TableQuery[Members]
 }

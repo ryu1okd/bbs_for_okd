@@ -1,8 +1,8 @@
 package models
 
 import org.joda.time.DateTime
-import scala.slick.driver.H2Driver.simple._
-import com.github.tototoshi.slick.H2JodaSupport._
+import scala.slick.driver.PostgresDriver.simple._
+import com.github.tototoshi.slick.PostgresJodaSupport._
 
 /**
  * コメントモデル
@@ -10,12 +10,12 @@ import com.github.tototoshi.slick.H2JodaSupport._
  */
 case class Comment (id:Option[Long],threadId:Long,comment:String,userName:Option[String],createAt:Option[DateTime])
 
-class Comments(tag:Tag) extends Table[Comment](tag,"COMMENT") {
-  def id = column[Option[Long]]("ID",O.PrimaryKey,O.AutoInc)
-  def threadId = column[Long]("THREAD_ID")
-  def comment = column[String]("COMMENT")
-  def userName = column[Option[String]]("USER_NAME")
-  def createAt = column[Option[DateTime]]("CREATE_AT",O.AutoInc)
+class Comments(tag:Tag) extends Table[Comment](tag,"comment") {
+  def id = column[Option[Long]]("id",O.PrimaryKey,O.AutoInc)
+  def threadId = column[Long]("thread_id")
+  def comment = column[String]("comment")
+  def userName = column[Option[String]]("user_name")
+  def createAt = column[Option[DateTime]]("create_at",O.AutoInc)
   def * = (id,threadId,comment,userName,createAt) <> (Comment.tupled,Comment.unapply)
 }
 
